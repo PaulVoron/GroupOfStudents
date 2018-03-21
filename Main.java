@@ -6,8 +6,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		//simpleTesting();      // простой вариант (лекция 3)
-		interactiveTesting();   // интерактивный вариант (лекция 4)
+		//simpleTesting();      // РїСЂРѕСЃС‚РѕР№ РІР°СЂРёР°РЅС‚ (Р»РµРєС†РёСЏ 3)
+		interactiveTesting();   // РёРЅС‚РµСЂР°РєС‚РёРІРЅС‹Р№ РІР°СЂРёР°РЅС‚ (Р»РµРєС†РёСЏ 4)
 	}
 
 	public static void interactiveTesting() {
@@ -18,7 +18,7 @@ public class Main {
 			int command = mainMenu();
 			if (command == 9) {
 				System.out.println("-------------------");
-				System.out.println("Программа завершена");
+				System.out.println("РџСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂС€РµРЅР°");
 				break;
 			}
 			switch (command) {
@@ -26,15 +26,15 @@ public class Main {
 				groupOne.createStudent();
 				break;
 			case 2:
-				groupOne.delStudent(groupOne.inputText("Исключение студента. Введите фамилию"));
+				groupOne.delStudent(groupOne.inputText("РСЃРєР»СЋС‡РµРЅРёРµ СЃС‚СѓРґРµРЅС‚Р°. Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ"));
 				break;
 			case 3:
-				surname = groupOne.inputText("Найти студента. Введите фамилию");
+				surname = groupOne.inputText("РќР°Р№С‚Рё СЃС‚СѓРґРµРЅС‚Р°. Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ");
 				Student student = groupOne.searchStudent(surname);
 				if (student.getSurname() == null) {
-					System.out.println("В группе нет такого студента.");
+					System.out.println("Р’ РіСЂСѓРїРїРµ РЅРµС‚ С‚Р°РєРѕРіРѕ СЃС‚СѓРґРµРЅС‚Р°.");
 				} else {
-					System.out.println("Студент " + surname + " найден:");
+					System.out.println("РЎС‚СѓРґРµРЅС‚ " + surname + " РЅР°Р№РґРµРЅ:");
 					System.out.println(student.toString());
 				}
 				break;
@@ -58,7 +58,7 @@ public class Main {
 			case 9:
 				break;
 			default:
-				JOptionPane.showMessageDialog(null, "Неверная команда, повторите ввод.");
+				JOptionPane.showMessageDialog(null, "РќРµРІРµСЂРЅР°СЏ РєРѕРјР°РЅРґР°, РїРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ.");
 				break;
 			}
 		}
@@ -69,10 +69,10 @@ public class Main {
 		for (;;) {
 			try {
 				capacityGroup = Integer
-						.valueOf(JOptionPane.showInputDialog("Введите вместимость " + "\n" + " группы (1-100)"));
+						.valueOf(JOptionPane.showInputDialog("Р’РІРµРґРёС‚Рµ РІРјРµСЃС‚РёРјРѕСЃС‚СЊ " + "\n" + " РіСЂСѓРїРїС‹ (1-100)"));
 				break;
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Неверный формат");
+				JOptionPane.showMessageDialog(null, "РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚");
 			} catch (NullPointerException e) {
 				JOptionPane.showMessageDialog(null, "Cancel. Set default value = 10");
 				capacityGroup = 10;
@@ -86,7 +86,7 @@ public class Main {
 			capacityGroup = 1;
 		}
 		Group groupOne = new Group(capacityGroup);
-		System.out.println("Успешно создана группа, вместимостью до " + capacityGroup + " студентов.");
+		System.out.println("РЈСЃРїРµС€РЅРѕ СЃРѕР·РґР°РЅР° РіСЂСѓРїРїР°, РІРјРµСЃС‚РёРјРѕСЃС‚СЊСЋ РґРѕ " + capacityGroup + " СЃС‚СѓРґРµРЅС‚РѕРІ.");
 		System.out.println("-----------------------------------------------------------");
 		return groupOne;
 	}
@@ -95,17 +95,17 @@ public class Main {
 
 		for (;;) {
 			try {
-				int command = Integer.valueOf(JOptionPane.showInputDialog("Доступные действия: (введите цифру)" + "\n"
+				int command = Integer.valueOf(JOptionPane.showInputDialog("Р”РѕСЃС‚СѓРїРЅС‹Рµ РґРµР№СЃС‚РІРёСЏ: (РІРІРµРґРёС‚Рµ С†РёС„СЂСѓ)" + "\n"
 						+ "------------------------------------------------------------" + "\n"
-						+ "1 - ввод нового студента и зачисление его в группу" + "\n"
-						+ "2 - исключение студента из группы (по фамилии)" + "\n" + "3 - поиск студента (по фамилии)"
-						+ "\n" + "4 - сортировка группы по фамилии" + "\n"
-						+ "5 - сортировка группы по успеваемости (от лучшего к худшему)" + "\n"
-						+ "6 - сортировка группы по возрасту" + "\n" + "7 - вывод на экран списка студентов" + "\n"
-						+ "8 - создать список призывников и вывести на экран" + "\n" + "9 - выход из программы"));
+						+ "1 - РІРІРѕРґ РЅРѕРІРѕРіРѕ СЃС‚СѓРґРµРЅС‚Р° Рё Р·Р°С‡РёСЃР»РµРЅРёРµ РµРіРѕ РІ РіСЂСѓРїРїСѓ" + "\n"
+						+ "2 - РёСЃРєР»СЋС‡РµРЅРёРµ СЃС‚СѓРґРµРЅС‚Р° РёР· РіСЂСѓРїРїС‹ (РїРѕ С„Р°РјРёР»РёРё)" + "\n" + "3 - РїРѕРёСЃРє СЃС‚СѓРґРµРЅС‚Р° (РїРѕ С„Р°РјРёР»РёРё)"
+						+ "\n" + "4 - СЃРѕСЂС‚РёСЂРѕРІРєР° РіСЂСѓРїРїС‹ РїРѕ С„Р°РјРёР»РёРё" + "\n"
+						+ "5 - СЃРѕСЂС‚РёСЂРѕРІРєР° РіСЂСѓРїРїС‹ РїРѕ СѓСЃРїРµРІР°РµРјРѕСЃС‚Рё (РѕС‚ Р»СѓС‡С€РµРіРѕ Рє С…СѓРґС€РµРјСѓ)" + "\n"
+						+ "6 - СЃРѕСЂС‚РёСЂРѕРІРєР° РіСЂСѓРїРїС‹ РїРѕ РІРѕР·СЂР°СЃС‚Сѓ" + "\n" + "7 - РІС‹РІРѕРґ РЅР° СЌРєСЂР°РЅ СЃРїРёСЃРєР° СЃС‚СѓРґРµРЅС‚РѕРІ" + "\n"
+						+ "8 - СЃРѕР·РґР°С‚СЊ СЃРїРёСЃРѕРє РїСЂРёР·С‹РІРЅРёРєРѕРІ Рё РІС‹РІРµСЃС‚Рё РЅР° СЌРєСЂР°РЅ" + "\n" + "9 - РІС‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹"));
 				return command;
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Неверная команда, повторите ввод.");
+				JOptionPane.showMessageDialog(null, "РќРµРІРµСЂРЅР°СЏ РєРѕРјР°РЅРґР°, РїРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ.");
 			} catch (NullPointerException e) {
 				JOptionPane.showMessageDialog(null, "Cancel");
 				return 9;
@@ -114,12 +114,12 @@ public class Main {
 	}
 
 	public static void recruitPrint(Group group) {
-		System.out.println("Список призывников:");
+		System.out.println("РЎРїРёСЃРѕРє РїСЂРёР·С‹РІРЅРёРєРѕРІ:");
 		for (Student recruit : group.callOfDuty()) {
 			if (recruit == null) {
 				continue;
 			}
-			System.out.println("Призывник-" + recruit);
+			System.out.println("РџСЂРёР·С‹РІРЅРёРє-" + recruit);
 		}
 	}
 
@@ -144,8 +144,8 @@ public class Main {
 
 		groupOne.addStudent(studentOne);
 		groupOne.addStudent(studentTwo);
-		groupOne.addStudent(studentNullOne); // попытка добавить "null"-студента - один вариант
-		groupOne.addStudent(studentNullTwo); // попытка добавить "null"-студента - другой вариант
+		groupOne.addStudent(studentNullOne); // РїРѕРїС‹С‚РєР° РґРѕР±Р°РІРёС‚СЊ "null"-СЃС‚СѓРґРµРЅС‚Р° - РѕРґРёРЅ РІР°СЂРёР°РЅС‚
+		groupOne.addStudent(studentNullTwo); // РїРѕРїС‹С‚РєР° РґРѕР±Р°РІРёС‚СЊ "null"-СЃС‚СѓРґРµРЅС‚Р° - РґСЂСѓРіРѕР№ РІР°СЂРёР°РЅС‚
 		groupOne.addStudent(studentThree);
 		groupOne.addStudent(studentFour);
 		groupOne.addStudent(studentFive);
@@ -154,40 +154,40 @@ public class Main {
 		groupOne.addStudent(studentEight);
 		groupOne.addStudent(studentNine);
 		groupOne.addStudent(studentTen);
-		groupOne.addStudent(studentEleven); // попытка добавить лишнего студента
+		groupOne.addStudent(studentEleven); // РїРѕРїС‹С‚РєР° РґРѕР±Р°РІРёС‚СЊ Р»РёС€РЅРµРіРѕ СЃС‚СѓРґРµРЅС‚Р°
 
 		System.out.println();
 
-		groupOne.delStudent("Pupkin"); // попытка удалить несуществующего студента
+		groupOne.delStudent("Pupkin"); // РїРѕРїС‹С‚РєР° СѓРґР°Р»РёС‚СЊ РЅРµСЃСѓС‰РµСЃС‚РІСѓСЋС‰РµРіРѕ СЃС‚СѓРґРµРЅС‚Р°
 		groupOne.delStudent("Tkachenko");
 		groupOne.delStudent("Koval");
 		groupOne.delStudent("Andreev");
 
 		groupOne.addStudent(studentEleven);
-		groupOne.addStudent(studentOne); // попытка внести в группу студента, который уже есть в группе
+		groupOne.addStudent(studentOne); // РїРѕРїС‹С‚РєР° РІРЅРµСЃС‚Рё РІ РіСЂСѓРїРїСѓ СЃС‚СѓРґРµРЅС‚Р°, РєРѕС‚РѕСЂС‹Р№ СѓР¶Рµ РµСЃС‚СЊ РІ РіСЂСѓРїРїРµ
 
 		System.out.println("--------");
 		groupOne.printGroup();
 		System.out.println("--------");
 
-		groupOne.sortGroup(0); // сортировка по успеваемости
+		groupOne.sortGroup(0); // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СѓСЃРїРµРІР°РµРјРѕСЃС‚Рё
 		System.out.println("--------");
 		groupOne.printGroup();
 
-		groupOne.sortGroup(1); // сортировка по возрасту
+		groupOne.sortGroup(1); // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РІРѕР·СЂР°СЃС‚Сѓ
 		System.out.println("--------");
 		groupOne.printGroup();
 
-		groupOne.sortGroup(2); // сортировка по фамилии
+		groupOne.sortGroup(2); // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С„Р°РјРёР»РёРё
 		System.out.println("--------");
 		groupOne.printGroup();
 
 		System.out.println("--------");
-		System.out.println(groupOne.toString()); // метод toString() - по алфавиту
+		System.out.println(groupOne.toString()); // РјРµС‚РѕРґ toString() - РїРѕ Р°Р»С„Р°РІРёС‚Сѓ
 		System.out.println("--------");
 		System.out.println();
-		System.out.println(groupOne.searchStudent("Tatarenko").toString()); // поиск по фамилии
-		System.out.println(groupOne.searchStudent("Anderson").toString()); // нет такого студента
+		System.out.println(groupOne.searchStudent("Tatarenko").toString()); // РїРѕРёСЃРє РїРѕ С„Р°РјРёР»РёРё
+		System.out.println(groupOne.searchStudent("Anderson").toString()); // РЅРµС‚ С‚Р°РєРѕРіРѕ СЃС‚СѓРґРµРЅС‚Р°
 		System.out.println("-------------------");
 		recruitPrint(groupOne);
 	}
