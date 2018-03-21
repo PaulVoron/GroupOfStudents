@@ -55,5 +55,5 @@ public class Human {
 	public String toString() {
 		return "Human [surname=" + surname + ", name=" + name + ", sex=" + sex + ", age=" + age + "]";
 	}
-	
+ 	
 }
