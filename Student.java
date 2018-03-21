@@ -32,5 +32,5 @@ public class Student extends Human {
 		return "Student [surname=" + this.getSurname() + ", name=" + this.getName() + ", sex=" + this.isSex() + ", age="
 				+ this.getAge() + ", progress=" + progress + "]";
 	}
-
+ 
 }
