@@ -15,4 +15,4 @@ public interface CheckNull {
 		}
 		return NOT_NULL;
 	}
-}
+} 
