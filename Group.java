@@ -33,28 +33,28 @@ public class Group implements CallOfDuty {
 
 	public void createStudent() {
 		if (checkFreePlace() == true) {
-			String surname = inputText("Введите фамилию студента");
+			String surname = inputText("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃС‚СѓРґРµРЅС‚Р°");
 			if (surname == null) {
 				surname = "noname";
 			}
-			String name = inputText("Введите имя студента");
+			String name = inputText("Р’РІРµРґРёС‚Рµ РёРјСЏ СЃС‚СѓРґРµРЅС‚Р°");
 			if (name == null) {
 				name = "noname";
 			}
-			int sexInt = inputInt("Введите пол студента." + "\n" + "0 - жен." + "\n" + "1 - муж.");
+			int sexInt = inputInt("Р’РІРµРґРёС‚Рµ РїРѕР» СЃС‚СѓРґРµРЅС‚Р°." + "\n" + "0 - Р¶РµРЅ." + "\n" + "1 - РјСѓР¶.");
 			boolean sex;
 			if (sexInt < 1) {
 				sex = false;
 			} else {
 				sex = true;
 			}
-			int age = inputInt("Введите возраст студента");
+			int age = inputInt("Р’РІРµРґРёС‚Рµ РІРѕР·СЂР°СЃС‚ СЃС‚СѓРґРµРЅС‚Р°");
 			if (age < 6) {
 				age = 6;
 			} else if (age > 100) {
 				age = 100;
 			}
-			int progress = inputInt("Введите средний балл студента" + "\n" + "(0-100)");
+			int progress = inputInt("Р’РІРµРґРёС‚Рµ СЃСЂРµРґРЅРёР№ Р±Р°Р»Р» СЃС‚СѓРґРµРЅС‚Р°" + "\n" + "(0-100)");
 			if (progress < 0) {
 				progress = 0;
 			} else if (progress > 100) {
@@ -81,23 +81,23 @@ public class Group implements CallOfDuty {
 	
 	public void addStudent(Student student) {
 		if (student == null) {
-			System.out.println("Нет данных для внесения.");
+			System.out.println("РќРµС‚ РґР°РЅРЅС‹С… РґР»СЏ РІРЅРµСЃРµРЅРёСЏ.");
 			return;
 		}
 		if (student.getSurname() == null) {
-			System.out.println("Нет данных для внесения.");
+			System.out.println("РќРµС‚ РґР°РЅРЅС‹С… РґР»СЏ РІРЅРµСЃРµРЅРёСЏ.");
 			return;
 		}
 		for (int i = 0; i < group.length; i++) {
 			if (group[i] == student) {
-				System.out.println("Студент " + student.getSurname() + " уже есть в группе.");
+				System.out.println("РЎС‚СѓРґРµРЅС‚ " + student.getSurname() + " СѓР¶Рµ РµСЃС‚СЊ РІ РіСЂСѓРїРїРµ.");
 				return;
 			}
 		}
 		for (int i = 0; i < group.length; i++) {
 			if (group[i] == null) {
 				group[i] = student;
-				System.out.println("Студент " + student.getSurname() + " зачислен в группу");
+				System.out.println("РЎС‚СѓРґРµРЅС‚ " + student.getSurname() + " Р·Р°С‡РёСЃР»РµРЅ РІ РіСЂСѓРїРїСѓ");
 				return;
 			}
 		}
@@ -114,24 +114,24 @@ public class Group implements CallOfDuty {
 			if (group[i] != null && group[i].getSurname().equals(surname)) {
 				group[i] = null;
 				System.out.println("-------------------");
-				System.out.println("Cтудент " + surname + " исключен из группы.");
+				System.out.println("CС‚СѓРґРµРЅС‚ " + surname + " РёСЃРєР»СЋС‡РµРЅ РёР· РіСЂСѓРїРїС‹.");
 				return;
 			}
 		}
 		System.out.println("-------------------");
-		System.out.println("Cтудент по фамилии " + surname + " не найден.");
+		System.out.println("CС‚СѓРґРµРЅС‚ РїРѕ С„Р°РјРёР»РёРё " + surname + " РЅРµ РЅР°Р№РґРµРЅ.");
 	}
 
 	public void sortGroup(int parametr) {
-		if (parametr == 0) { // сортировка по успеваемости
+		if (parametr == 0) { // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ СѓСЃРїРµРІР°РµРјРѕСЃС‚Рё
 			Arrays.sort(group, (a, b) -> CheckNull.checkNull(a, b) != CheckNull.NOT_NULL ? CheckNull.checkNull(a, b)
 					: -1 * (a.getProgress() - b.getProgress()));
 		}
-		if (parametr == 1) { // сортировка по возрасту
+		if (parametr == 1) { // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РІРѕР·СЂР°СЃС‚Сѓ
 			Arrays.sort(group, (a, b) -> CheckNull.checkNull(a, b) != CheckNull.NOT_NULL ? CheckNull.checkNull(a, b)
 					: a.getAge() - b.getAge());
 		}
-		if (parametr == 2) { // сортировка по фамилии
+		if (parametr == 2) { // СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕ С„Р°РјРёР»РёРё
 			Arrays.sort(group, (a, b) -> CheckNull.checkNull(a, b) != CheckNull.NOT_NULL ? CheckNull.checkNull(a, b)
 					: a.getSurname().compareTo(b.getSurname()));
 		}
@@ -139,7 +139,7 @@ public class Group implements CallOfDuty {
 
 	public Student searchStudent(String surname) {
 		System.out.println("-------------------");
-		System.out.println("Ищем студента... " + surname);
+		System.out.println("РС‰РµРј СЃС‚СѓРґРµРЅС‚Р°... " + surname);
 		for (int i = 0; i < group.length; i++) {
 			if (group[i] == null) {
 				continue;
@@ -177,7 +177,7 @@ public class Group implements CallOfDuty {
 				String requestText = String.valueOf(JOptionPane.showInputDialog(question));
 				return requestText;
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Неверный формат");
+				JOptionPane.showMessageDialog(null, "РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚");
 			} catch (NullPointerException e) {
 				JOptionPane.showMessageDialog(null, "Cancel");
 				return "Cancel";
@@ -191,7 +191,7 @@ public class Group implements CallOfDuty {
 				int requestText = Integer.valueOf(JOptionPane.showInputDialog(question));
 				return requestText;
 			} catch (NumberFormatException e) {
-				JOptionPane.showMessageDialog(null, "Неверный формат");
+				JOptionPane.showMessageDialog(null, "РќРµРІРµСЂРЅС‹Р№ С„РѕСЂРјР°С‚");
 			} catch (NullPointerException e) {
 				JOptionPane.showMessageDialog(null, "Cancel");
 				return 0;
